@@ -1,6 +1,7 @@
 import React from 'react'
 import useForm from 'react-hook-form'
 import CustomInput from './components/CustomInput'
+import CustomButton from './components/CustomButton'
 
 import { AppBar, Toolbar, Typography, Container, Paper, Grid, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -39,6 +40,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3)
   },
+  formButtons: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    margin: theme.spacing(1)
+  }
 }))
 
 export default function MainForm() {
@@ -88,7 +94,16 @@ export default function MainForm() {
                 </Grid>
               </Grid>
             </Grid>
-            <input type='submit' />
+            <Grid container className={classes.formSubContainer}>
+              <Grid item xs={6} sm={4} />
+              <Grid item xs={12} sm={6} className={classes.formButtons}>
+                <CustomButton
+                  name='create-account'
+                  label='Create account'
+                  type='submit'
+                />
+              </Grid>
+            </Grid>
           </form>
         </Paper>
       </Container>
