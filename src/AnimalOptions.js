@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
 export default function AnimalOptions({
   name,
   label,
-  options,
-  errors,
+  options = [],
+  errors = {},
   setValue,
   triggerValidation,
   isSubmitted,
@@ -31,7 +31,7 @@ export default function AnimalOptions({
   const handleChange = name => async (event) => {
     setValue(name, event.target.checked)
 
-    // Also trigger validation when form has been submitted
+    // Trigger validation when form has been submitted
     if(isSubmitted) {
       await triggerValidation(animalNames)
     }
@@ -39,7 +39,9 @@ export default function AnimalOptions({
     if (!getValues()['animal.tiger']) {
       setValue('tiger_type', '')
     } else {
-      await triggerValidation({ name: 'tiger_type' })
+      if(isSubmitted) {
+        await triggerValidation({ name: 'tiger_type' })
+      }
     }
   }
 
