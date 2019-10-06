@@ -9,6 +9,8 @@ The Springload form validation problem requires a developer to make sure that th
 * If `Tiger` is one of the chosen `Animal`s then `Type of tiger` is required to be a non-empty string.
 * If the form is submitted and an error occurs, the error element's parent should have a CSS `error` class added to it.
 
+My implementation is found here:  https://www.anncudis.com/form-validation-problem
+
 ### Local Development
 This project was...
 * bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
@@ -27,7 +29,7 @@ Tested on both Chrome (latest) and Firefox Nightly.
 Every pull request created will trigger the [Continuous Integration](https://github.com/jvcudis/form-validation-problem/actions?workflow=Continuous+Integration) workflow which runs the unit tests and reports back the result as status check to the pull request. The test results can be viewed under the **Checks** tab.
 
 ### Deployment
-[Github Actions](https://github.com/features/actions) is used to automatically deploy all code changes to https://www.anncudis.com/form-validation-problem which lives in the `gh-pages` branch of the repository.
+[Github Actions](https://github.com/features/actions) is used to automatically deploy all code changes to a live site which lives in the `gh-pages` branch of the repository.
 
 Any changes pushed to `master` will automatically trigger the [Build & Deploy to Github Pages](https://github.com/jvcudis/form-validation-problem/actions?workflow=Build+%26+Deploy+to+Github+Pages) workflow which executes the following:
 * **Run Unit Test** - Executes the unit test.
