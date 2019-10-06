@@ -106,7 +106,12 @@ export default function MainForm() {
                   label='Email'
                   type='text'
                   errors={errors}
-                  register={register({ required: true })}
+                  register={register({
+                    pattern: {
+                      value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: 'Please input a valid email.'
+                    }
+                  })}
                 />
                 <CustomInput
                   name='password'
