@@ -3,6 +3,7 @@ import useForm from 'react-hook-form'
 import CustomInput from './components/CustomInput'
 import CustomButton from './components/CustomButton'
 import CustomSelect from './components/CustomSelect'
+import AnimalOptions from './AnimalOptions'
 
 import { AppBar, Toolbar, Typography, Container, Paper, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -56,11 +57,26 @@ const colorOptions = [
   { label: 'Brown', value: 'brown' }
 ]
 
+const animalOptions = [
+  { name: 'animal.bear', value: 'bear', label: 'Bear' },
+  { name: 'animal.tiger', value: 'tiger', label: 'Tiger' },
+  { name: 'animal.snake', value: 'snake', label: 'Snake' },
+  { name: 'animal.donkey', value: 'donkey', label: 'Donkey' },
+]
+
 export default function MainForm() {
   const classes = useStyles()
-  const { register, handleSubmit, errors, setValue, triggerValidation, formState } = useForm()
+  const { register, handleSubmit, errors, setValue, getValues, triggerValidation, formState } = useForm()
   const onSubmit = data => {
     console.log(data)
+  }
+
+  const getAnimalSelected = () => {
+    const values = getValues()
+    const selectedList = animalOptions.map(animal => {
+      return values[animal.name] ? animal.name : null
+    })
+    return selectedList.filter(value => value !== null)
   }
 
   return (
@@ -120,6 +136,23 @@ export default function MainForm() {
                   register={
                     register({
                       required: 'Please select a colour.'
+                    })
+                  }
+                />
+                <AnimalOptions
+                  name='animal'
+                  label='Animal'
+                  options={animalOptions}
+                  errors={errors}
+                  setValue={setValue}
+                  triggerValidation={triggerValidation}
+                  isSubmitted={formState.isSubmitted}
+                  getValues={getValues}
+                  register={
+                    register({
+                      validate: () => {
+                        return getAnimalSelected().length > 1
+                      }
                     })
                   }
                 />
