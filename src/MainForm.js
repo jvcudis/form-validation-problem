@@ -66,7 +66,7 @@ const animalOptions = [
 
 export default function MainForm() {
   const classes = useStyles()
-  const { register, handleSubmit, errors, setValue, getValues, triggerValidation, formState } = useForm()
+  const { register, handleSubmit, errors, setValue, getValues, triggerValidation, watch, formState } = useForm()
   const onSubmit = data => {
     console.log(data)
   }
@@ -156,6 +156,13 @@ export default function MainForm() {
                     })
                   }
                 />
+                {watch('animal.tiger') && <CustomInput
+                  name='tiger_type'
+                  label='Type of tiger'
+                  type='text'
+                  errors={errors}
+                  register={register({ required: true })}
+                />}
               </Grid>
             </Grid>
             <Grid container className={classes.formSubContainer}>
