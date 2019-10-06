@@ -3,9 +3,9 @@ import { FormControlLabel, Checkbox } from '@material-ui/core'
 
 export default function CustomCheckbox({
   name,
-  value,
-  label,
-  handleChange
+  value = '',
+  label = '',
+  handleChange = (name) => {}
 }) {
   return (
     <FormControlLabel
