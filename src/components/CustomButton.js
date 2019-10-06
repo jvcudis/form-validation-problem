@@ -17,7 +17,7 @@ export default function CustomButton({
   const classes = useStyles()
   return (
     <>
-      <input type={type} id={name}  className={classes.hiddenInput} />
+      <input type={type} id={name} className={classes.hiddenInput} />
       <label htmlFor={name}>
         <Button variant='contained' color={color} component='span'>
           {label}
