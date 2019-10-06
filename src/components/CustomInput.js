@@ -19,7 +19,6 @@ export default function CustomInput({
 }) {
   const classes = useStyles()
   const hasError = errors[name] !== undefined
-  console.log(register)
   return (
     <TextField
       id={name}
