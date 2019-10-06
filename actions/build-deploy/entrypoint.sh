@@ -3,7 +3,7 @@
 export CI=true
 
 npm ci
-npm run pre-deploy
+npm run predeploy
 
 cd build
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
