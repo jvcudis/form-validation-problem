@@ -1,0 +1,10 @@
+name: Deployment to Github Pages
+on: push
+
+jobs:
+  build:
+    name: Deployment
+    runs-on: node
+    steps:
+    - uses: actions/checkout@master
+    - uses: ./deployment
