@@ -171,7 +171,12 @@ export default function MainForm() {
                   label='Type of tiger'
                   type='text'
                   errors={errors}
-                  register={register({ required: true })}
+                  register={register({
+                    pattern: {
+                      value: /^[a-z]+$/i,
+                      message: 'Please input a string value.'
+                    }
+                  })}
                 />}
               </Grid>
             </Grid>
