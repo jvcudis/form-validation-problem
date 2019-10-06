@@ -118,7 +118,12 @@ export default function MainForm() {
                   label='Password'
                   type='password'
                   errors={errors}
-                  register={register({ required: true })}
+                  register={register({
+                    minLength: {
+                      value: 8,
+                      message: 'Please input a password with min length of 8.'
+                    }
+                  })}
                 />
               </Grid>
             </Grid>
