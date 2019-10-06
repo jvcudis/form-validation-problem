@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Form validation problem](https://springload.github.io/form-validation-problem/)
 
-## Available Scripts
+The Springload form validation problem requires a developer to make sure that the given form is submitted successfully (sort of!) given the following rules on the form fields:
 
-In the project directory, you can run:
+* `Email` must be a valid email address.
+* `Password` must be longer than 8 characters.
+* `Colour` must be selected.
+* At least two `Animal`s must be chosen.
+* If `Tiger` is one of the chosen `Animal`s then `Type of tiger` is required to be a non-empty string.
+* If the form is submitted and an error occurs, the error element's parent should have a CSS `error` class added to it.
 
-### `npm start`
+### Local Development
+This project was...
+* bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+* used [Material-UI](https://material-ui.com/getting-started/installation/) as its UI framework and
+* [react-hook-form](https://react-hook-form.com/get-started/) for handling form validation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run locally, clone this repository and run `npm install` in the root directory and then an `npm start` to start the application.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> Personal Notes. <br />
+> It has been a year and a few months since I've used React and since I want to implement this as fast as I can and after a few Google searches, I decided to use **Create React App** and the **react-hook-form** for validation. I've never used them before but I'm liking them. And when I looked at the UI, I thought I can make this prettier and so decided to use **Material-UI** which I've never used before. It was too late for me to realize that adding the UI framework adds a lot of complexity. :smile: But I've already started on it and I don't want to give up on it. Call it stubbornness.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Testing
+Run the unit tests by doing an `npm test`.
+Tested on both Chrome (latest) and Firefox Nightly.
 
 ### Deployment
+[Github Actions](https://github.com/features/actions) is used to automatically deploy all code changes to https://www.anncudis.com/form-validation-problem which lives in the `gh-pages` branch of the repository.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Any changes pushed to `master` will automatically trigger the [Build & Deploy to Github Pages](https://github.com/jvcudis/form-validation-problem/actions?workflow=Build+%26+Deploy+to+Github+Pages) action which executes the following:
+* **Run Unit Test** - executes the unit test
+* **Build & Deploy** - build static files and push to `gh-pages`
 
-### `npm run build` fails to minify
+Do a manual deploy by running `npm run deploy`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> Why use Github Actions? I've been thinking of playing around with this new feature and this seems like a good opportunity to do it. :smile:
+
+### Maintainer
+Please send all question to **jvcudis@gmail.com**.
