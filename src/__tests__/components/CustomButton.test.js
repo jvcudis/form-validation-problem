@@ -1,9 +1,9 @@
 import React from 'react'
-import { render, mount, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { Button } from '@material-ui/core'
 import CustomButton from '../../components/CustomButton'
 
-describe('CustomButton', () => {
+describe('<CustomButton />', () => {
   let customButton
 
   beforeEach(() => {
@@ -15,19 +15,32 @@ describe('CustomButton', () => {
   })
 
   it('contains an input element', () => {
-    const customButton = mount(<CustomButton />)
     expect(customButton.find('input')).toHaveLength(1)
   })
 
   it('contains a Button element', () => {
-    const customButton = mount(<CustomButton />)
     expect(customButton.find(Button)).toHaveLength(1)
   })
 
   describe('input element', () => {
-    it('uses \'submit\' as default type', () => {
-      const input = customButton.find('input')
-      expect(input.props().type).toEqual('submit')
+    describe('defaults', () => {
+      let input
+
+      beforeEach(() => {
+        input = customButton.find('input')
+      })
+
+      it('uses \'submit\' as default type', () => {
+        expect(input.props().type).toEqual('submit')
+      })
+
+      it('uses \'submit-button\' as default name', () => {
+        expect(input.props().id).toEqual('submit-button')
+      })
+
+      it('is hidden by default', () => {
+        expect(input.hasClass(/\w+(-hiddenInput-)[0-9]+/)).toEqual(true)
+      })
     })
 
     it('uses given type', () => {
@@ -36,38 +49,34 @@ describe('CustomButton', () => {
       expect(input.props().type).toEqual('text')
     })
 
-    it('uses \'submit-button\' as default name', () => {
-      const input = customButton.find('input')
-      expect(input.props().id).toEqual('submit-button')
-    })
-
     it('uses given name as id', () => {
       customButton = mount(<CustomButton name='some-name' />)
       const input = customButton.find('input')
       expect(input.props().id).toEqual('some-name')
     })
-
-    it('is hidden by default', () => {
-      const input = customButton.find('input')
-      expect(input.hasClass(/\w+(-hiddenInput-)[0-9]+/)).toEqual(true)
-    })
   })
 
   describe('Button element', () => {
-    it('uses \'primary\' as default color', () => {
-      const button = customButton.find(Button)
-      expect(button.props().color).toEqual('primary')
+    describe('defaults', () => {
+      let button
+
+      beforeEach(() => {
+        button = customButton.find(Button)
+      })
+
+      it('uses \'primary\' as default color', () => {
+        expect(button.props().color).toEqual('primary')
+      })
+
+      it('uses empty text as default label', () => {
+        expect(button.text()).toEqual('')
+      })
     })
 
     it('uses given button color', () => {
       customButton = mount(<CustomButton color='secondary' />)
       const button = customButton.find(Button)
       expect(button.props().color).toEqual('secondary')
-    })
-
-    it('uses empty text as default label', () => {
-      const button = customButton.find(Button)
-      expect(button.text()).toEqual('')
     })
 
     it('uses given button label', () => {
