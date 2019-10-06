@@ -3,8 +3,8 @@
 npm ci
 npm run predeploy
 
-npm install gh-pages --global && \
-gh-pages -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+npm install gh-pages --global
+gh-pages -r "https://${GITHUB_TOKEN}@github.com/${GITHUB_ACTOR}/${GITHUB_REPOSITORY}.git" \
          -b "gh-pages" \
          -m "Update page content" \
          -u "${GITHUB_USER} <${GITHUB_EMAIL}>" \
