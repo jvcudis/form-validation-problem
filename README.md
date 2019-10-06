@@ -28,8 +28,8 @@ Tested on both Chrome (latest) and Firefox Nightly.
 [Github Actions](https://github.com/features/actions) is used to automatically deploy all code changes to https://www.anncudis.com/form-validation-problem which lives in the `gh-pages` branch of the repository.
 
 Any changes pushed to `master` will automatically trigger the [Build & Deploy to Github Pages](https://github.com/jvcudis/form-validation-problem/actions?workflow=Build+%26+Deploy+to+Github+Pages) action which executes the following:
-* **Run Unit Test** - executes the unit test
-* **Build & Deploy** - build static files and push to `gh-pages`
+* **Run Unit Test** - Executes the unit test.
+* **Build & Deploy** - Build static files and push to `gh-pages`. Only executed when running unit tests is successfully completed.
 
 Do a manual deploy by running `npm run deploy`.
 
