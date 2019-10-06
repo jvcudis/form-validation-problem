@@ -1,5 +1,5 @@
-name: Deployment to Github Pages
-on: push
+name: Build & Deploy to Github Pages
+on: [push]
 
 jobs:
   build:
