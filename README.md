@@ -24,10 +24,12 @@ To run locally, clone this repository and run `npm install` in the root director
 Run the unit tests by doing an `npm test`.
 Tested on both Chrome (latest) and Firefox Nightly.
 
+Every pull request created will trigger the [Continuous Integration](https://github.com/jvcudis/form-validation-problem/actions?workflow=Continuous+Integration) workflow which runs the unit tests and reports back the result as status check to the pull request. The test results can be viewed under the **Checks** tab.
+
 ### Deployment
 [Github Actions](https://github.com/features/actions) is used to automatically deploy all code changes to https://www.anncudis.com/form-validation-problem which lives in the `gh-pages` branch of the repository.
 
-Any changes pushed to `master` will automatically trigger the [Build & Deploy to Github Pages](https://github.com/jvcudis/form-validation-problem/actions?workflow=Build+%26+Deploy+to+Github+Pages) action which executes the following:
+Any changes pushed to `master` will automatically trigger the [Build & Deploy to Github Pages](https://github.com/jvcudis/form-validation-problem/actions?workflow=Build+%26+Deploy+to+Github+Pages) workflow which executes the following:
 * **Run Unit Test** - Executes the unit test.
 * **Build & Deploy** - Build static files and push to `gh-pages`. Only executed when running unit tests is successfully completed.
 
