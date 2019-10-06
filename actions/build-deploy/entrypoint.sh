@@ -1,19 +1,12 @@
 #!/bin/sh
 
-export CI=true
-
 npm ci
 npm run predeploy
 
-cd build
-remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
-remote_branch="gh-pages" && \
-git init && \
-git config user.name "${GITHUB_ACTOR}" && \
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
-git add . && \
-echo -n 'Files to Commit:' && ls -l | wc -l && \
-git commit -m 'action build' > /dev/null 2>&1 && \
-git push --force $remote_repo master:$remote_branch > /dev/null 2>&1 && \
-rm -fr .git && \
-cd ../
+npm install gh-pages && \
+gh-pages -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+         -b "gh-pages2" \
+         -m "Update page content" \
+         -u "${GITHUB_ACTOR}" \
+         -d build \
+         -x
