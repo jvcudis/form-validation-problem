@@ -2,8 +2,9 @@ import React from 'react'
 import useForm from 'react-hook-form'
 import CustomInput from './components/CustomInput'
 import CustomButton from './components/CustomButton'
+import CustomSelect from './components/CustomSelect'
 
-import { AppBar, Toolbar, Typography, Container, Paper, Grid, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Container, Paper, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -47,9 +48,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const colorOptions = [
+  { label: 'Blue', value: 'blue' },
+  { label: 'Green', value: 'green' },
+  { label: 'Red', value: 'red' },
+  { label: 'Black', value: 'black' },
+  { label: 'Brown', value: 'brown' }
+]
+
 export default function MainForm() {
   const classes = useStyles()
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, errors, setValue, triggerValidation, formState } = useForm()
   const onSubmit = data => {
     console.log(data)
   }
@@ -76,22 +85,44 @@ export default function MainForm() {
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <Grid item xs={12}>
-                  <CustomInput
-                    label='Email'
-                    name='email'
-                    type='text'
-                    errors={errors}
-                    register={register({ required: true })}
-                  />
-                  <CustomInput
-                    label='Password'
-                    name='password'
-                    type='password'
-                    errors={errors}
-                    register={register({ required: true })}
-                  />
-                </Grid>
+                <CustomInput
+                  name='email'
+                  label='Email'
+                  type='text'
+                  errors={errors}
+                  register={register({ required: true })}
+                />
+                <CustomInput
+                  name='password'
+                  label='Password'
+                  type='password'
+                  errors={errors}
+                  register={register({ required: true })}
+                />
+              </Grid>
+            </Grid>
+            <Grid container className={classes.formSubContainer}>
+              <Grid item xs={6} sm={4}>
+                <Typography variant="h6" className={classes.formSubTitle}>
+                  Your animal
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <CustomSelect
+                  name='colour'
+                  label='Choose colour'
+                  choice='color_choice'
+                  options={colorOptions}
+                  errors={errors}
+                  setValue={setValue}
+                  triggerValidation={triggerValidation}
+                  isSubmitted={formState.isSubmitted}
+                  register={
+                    register({
+                      required: 'Please select a colour.'
+                    })
+                  }
+                />
               </Grid>
             </Grid>
             <Grid container className={classes.formSubContainer}>
