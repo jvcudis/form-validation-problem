@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   formTitle: {
+    textAlign: 'center',
     marginBottom: theme.spacing(6)
   },
   formSubTitle: {
