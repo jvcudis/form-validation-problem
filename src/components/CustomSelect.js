@@ -17,8 +17,8 @@ export default function CustomSelect({
   name,
   label,
   choice,
-  options,
-  errors,
+  options = [],
+  errors = {},
   setValue,
   triggerValidation,
   isSubmitted,
@@ -42,8 +42,8 @@ export default function CustomSelect({
   return (
     <TextField
       id={name}
-      label={label}
       name={name}
+      label={label}
       value={colors.selected}
       className={classes.textField}
       select
@@ -52,7 +52,7 @@ export default function CustomSelect({
       onChange={handleChange}
       SelectProps={{
         MenuProps: {
-          className: classes.menu,
+          className: classes.menu
         },
       }}
       helperText={errors[choice] && errors[choice].message}
