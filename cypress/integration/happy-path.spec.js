@@ -17,6 +17,9 @@ describe('happy path', () => {
       .find('ul > li').first()
       .click()
 
+    cy.get('#colour')
+      .focus().should('have.value', 'blue')
+
     cy.get('[type="checkbox"]')
       .check('bear').should('be.checked')
 
