@@ -59,7 +59,7 @@ export default function AnimalOptions({
           <CustomCheckbox key={option.name} name={option.name} value={option.value} label={option.label} handleChange={handleChange} />
         ))}
       </FormGroup>
-      <FormHelperText>{hasErrors && 'Please select at least two animals.'}</FormHelperText>
+      <FormHelperText id={`${name}-helper-text`}>{hasErrors && 'Please select at least two animals.'}</FormHelperText>
     </FormControl>
   )
 }
