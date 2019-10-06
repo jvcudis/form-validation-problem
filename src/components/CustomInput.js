@@ -11,28 +11,29 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function CustomInput({
-  name = '',
-  label = '',
+  name = 'textfield',
+  label = 'Enter text',
   type = 'text',
   errors = {},
   register = () => {}
 }) {
   const classes = useStyles()
   const hasError = errors[name] !== undefined
+  console.log(register)
   return (
     <TextField
       id={name}
-      label={label}
       name={name}
+      label={label}
       className={classes.textField}
       type={type}
       fullWidth
       error={hasError}
       inputRef={register}
       InputLabelProps={{
-        shrink: true,
+        shrink: true
       }}
-      helperText={hasError && (errors[name].message || `${label} is invalid.`)}
+      helperText={hasError ? (errors[name].message || `${label} is invalid.`) : ''}
       variant='outlined'
     />
   )
