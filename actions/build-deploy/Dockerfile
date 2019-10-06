@@ -9,5 +9,7 @@ LABEL "repository"="https://github.com/jvcudis/form-validation-problem"
 LABEL "homepage"="https://www.anncudis.com/form-validation-problem"
 LABEL "maintainer"="Ann Cudis <jvcudis@gmail.com>"
 
-ADD entrypoint.sh /entrypoint.sh
+RUN apk --update add git
+COPY entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
