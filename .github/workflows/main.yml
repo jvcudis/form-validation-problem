@@ -1,5 +1,5 @@
 name: Build & Deploy to Github Pages
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -9,12 +9,11 @@ jobs:
     - uses: actions/checkout@master
     - name: Clean install dependencies and run tests
       run: |
-        npm ci
+        npm ci --silent
         CI=true npm test
-    # - uses: ./actions/execute-test
   deploy:
     name: Build & Deploy
-    if: github.event_name == 'master'
+    if: github.branch == 'master'
     runs-on: ubuntu-latest
     needs: build
     env:
