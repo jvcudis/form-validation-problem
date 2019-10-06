@@ -1,7 +1,7 @@
 FROM node:10-alpine
 
-LABEL "com.github.actions.name"="Deployment"
-LABEL "com.github.actions.description"="Deploys static content to Github Pages"
+LABEL "com.github.actions.name"="Execute Test"
+LABEL "com.github.actions.description"="Executes unit tests"
 LABEL "com.github.actions.icon"="mic"
 LABEL "com.github.actions.color"="purple"
 
