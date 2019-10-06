@@ -3,8 +3,8 @@ on: push
 
 jobs:
   build:
-    name: Deployment
+    name: Run Unit Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: ./deployment
+    - uses: ./actions/run-test

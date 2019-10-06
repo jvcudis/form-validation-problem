@@ -9,5 +9,5 @@ LABEL "repository"="https://github.com/jvcudis/form-validation-problem"
 LABEL "homepage"="https://www.anncudis.com/form-validation-problem"
 LABEL "maintainer"="Ann Cudis <jvcudis@gmail.com>"
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+RUN npm ci
+ENTRYPOINT ["npm run test"]
