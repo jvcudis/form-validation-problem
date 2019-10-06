@@ -26,6 +26,8 @@ export default function AnimalOptions({
   const animalNames = options.map(opt => {
     return { name: opt.name }
   })
+
+  // This can be better I think
   const hasErrors = errors['animal.bear'] || errors['animal.tiger'] || errors['animal.snake'] || errors['animal.donkey']
 
   const handleChange = name => async (event) => {
