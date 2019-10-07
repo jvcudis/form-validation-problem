@@ -11,3 +11,7 @@ jobs:
       run: |
         npm ci --silent
         CI=true npm test
+    - name: Run Cypress integraton tests
+      run: |
+        npm install cypress --save-dev
+        CI=true npm run test:integration
