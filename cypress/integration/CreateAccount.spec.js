@@ -11,7 +11,7 @@ context('CreateAccount', () => {
       .should('contain', 'Please input a valid email.')
 
     cy.get('#password-helper-text')
-      .should('contain', 'Please input a password with min length of 8.')
+      .should('contain', 'Please input a valid password with min length of 8.')
 
     cy.get('#colour-helper-text')
       .should('contain', 'Please select a colour.')

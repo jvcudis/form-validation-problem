@@ -50,13 +50,13 @@ context('ValidateFields', () => {
 
     // A helper text value represents and error (from MUI)
     cy.get('#password-helper-text')
-      .should('contain', 'Please input a password with min length of 8.')
+      .should('contain', 'Please input a valid password with min length of 8.')
 
     // Input an empty value
     cy.get('#password')
       .clear()
     cy.get('#password-helper-text')
-      .should('contain', 'Please input a password with min length of 8.')
+      .should('contain', 'Please input a valid password with min length of 8.')
 
     // Input a valid password value
     cy.get('#password')
