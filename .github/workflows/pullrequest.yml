@@ -2,7 +2,7 @@ name: Continuous Integration
 on: pull_request
 
 jobs:
-  build:
+  unit:
     name: Run Unit Test
     runs-on: ubuntu-latest
     steps:
@@ -11,3 +11,12 @@ jobs:
       run: |
         npm ci --silent
         CI=true npm test
+  integration:
+    name: Run Integration Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Cypress integraton tests
+      run: |
+        npm install cypress --save-dev
+        CI=true CYPRESS_BUILDENV=dev npm run test:integration-dev
