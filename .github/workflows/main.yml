@@ -28,8 +28,12 @@ jobs:
     - uses: actions/checkout@master
     - name: Build static site and deploy to gh-pages
       run: |
+        git config --global user.name '${GITHUB_USER}'
+        git config --global user.email '${GITHUB_EMAIL}'
+        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY} .
         npm ci --silent
         npm run predeploy
+        CI=true npm run deploy
   integration:
     name: Run Integration Test
     runs-on: ubuntu-latest
