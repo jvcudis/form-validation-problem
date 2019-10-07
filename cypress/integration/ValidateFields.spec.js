@@ -1,6 +1,6 @@
 context('ValidateFields', () => {
   beforeEach(() => {
-    cy.visit(Cypress.env(Cypress.env('BUILDENV')))
+    cy.visit(Cypress.env(Cypress.env('BUILDENV') || 'dev'))
   })
 
   it('should require a valid email', () => {

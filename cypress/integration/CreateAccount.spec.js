@@ -1,6 +1,6 @@
 context('CreateAccount', () => {
   beforeEach(() => {
-    cy.visit(Cypress.env(Cypress.env('BUILDENV')))
+    cy.visit(Cypress.env(Cypress.env('BUILDENV') || 'dev'))
   })
 
   it('should render validation errors when required fields are empty', () => {
