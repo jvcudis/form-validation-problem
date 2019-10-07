@@ -22,6 +22,7 @@ jobs:
     needs: unit
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       GITHUB_USER: 'Ann Cudis'
       GITHUB_EMAIL: 'jvcudis@gmail.com'
     steps:
@@ -34,7 +35,7 @@ jobs:
         npm ci --silent
         npm run deploy
         # Trigger a page build to avoid issues in deployment
-        curl -H "Authorization: token ${GITHUB_TOKEN}" \
+        curl -H "Authorization: token ${ACCESS_TOKEN}" \
           -H "Accept: Accept: application/vnd.github.v3+json" \
           -X POST https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds
   integration:
