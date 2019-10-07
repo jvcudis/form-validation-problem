@@ -2,7 +2,7 @@
   "name": "form-validation-problem",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.anncudis.com",
+  "homepage": "https://jvcudis.github.io/form-validation-problem",
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "react": "^16.10.2",
