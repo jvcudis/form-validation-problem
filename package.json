@@ -18,7 +18,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "cy:run": "cypress run",
-    "test:integration-dev": "CYPRESS_BUILDENV=dev start-server-and-test start http://localhost:3000 cy:run"
+    "test:integration-dev": "CYPRESS_BUILDENV=dev start-server-and-test start http://localhost:3000 cy:run",
+    "test:integration": "CYPRESS_BUILDENV=prod npm run cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"

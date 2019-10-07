@@ -27,3 +27,13 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: ./actions/build-deploy
+  integration:
+    name: Run Integration Test
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Cypress integraton tests
+      run: |
+        npm install cypress --save-dev
+        CI=true CYPRESS_BUILDENV=prod npm run test:integration
