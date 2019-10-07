@@ -1,1 +1,7 @@
-{}
+{
+  "video": false,
+  "env": {
+    "dev": "http://localhost:3000",
+    "prod": "https://www.anncudis.com/form-validation-problem"
+  }
+}

@@ -1,6 +1,6 @@
 context('CreateAccount', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit(Cypress.env(Cypress.env('BUILDENV')))
   })
 
   it('should render validation errors when required fields are empty', () => {
