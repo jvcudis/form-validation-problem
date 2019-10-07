@@ -32,6 +32,7 @@ jobs:
         echo "🍙 Building static files"
         npm ci --silent
         npm run build
+
         echo "🍩 Deploying build directory to gh-pages branch"
         cd build
         git init
@@ -41,15 +42,6 @@ jobs:
         git commit --allow-empty -m 'Deploying to GitHub pages'
         git push --force --quiet "https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${GITHUB_REPOSITORY}.git" "master:gh-pages"
         rm -rf .git
-        # git config user.name "${GITHUB_ACTOR}"
-        # git config user.email "${GITHUB_EMAIL}"
-        # git remote set-url origin "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-        # npm ci --silent
-        # npm run deploy
-        # # Trigger a page build to avoid issues in deployment
-        # curl -H "Authorization: token ${ACCESS_TOKEN}" \
-        #   -H "Accept: Accept: application/vnd.github.v3+json" \
-        #   -X POST https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds
   integration:
     name: Run Integration Test
     runs-on: ubuntu-latest

@@ -99,7 +99,7 @@ export default function MainForm() {
       <AppBar className={classes.appBar}>
         <Toolbar>
           <Typography variant='h6' noWrap>
-            (っ◕‿◕)っ Springload Form Validation Problem
+            (っ◕‿◕)っ Springload Form Validation Implementation
           </Typography>
         </Toolbar>
       </AppBar>
