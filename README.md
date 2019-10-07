@@ -11,7 +11,7 @@ The Springload form validation problem requires a developer to make sure that th
 
 My implementation is found here:  https://www.anncudis.com/form-validation-problem
 
-> It was fun doing this activity! :smile: Although it took me a while to get everything set up and working with the different tech stacks that I've chosen, it was really rewarding getting back to coding using React and learning more about Github Actions. 
+> It was fun doing this activity! :smile: Although it took me a while to get everything set up and working with the different tech stacks that I've chosen, it was really rewarding getting back to coding using React and learning more about Github Actions.
 
 ### Local Development
 This project was...
@@ -28,6 +28,9 @@ To run locally, clone this repository and run `npm install` in the root director
 There are two tests for this project:
 * **Unit Tests** - Used [enzyme](https://github.com/airbnb/enzyme) and built-in test runner [jest](https://jestjs.io/) in running tests.
 * **Integration Tests** - Used [Cypress](https://www.cypress.io/).
+
+See Cypress in action!
+![Cypress Run](images/cypressrun.gif)
 
 ##### Running Locally
 Run the unit tests locally by using `npm test`.
