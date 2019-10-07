@@ -35,6 +35,7 @@ jobs:
         npm run deploy
         # Trigger a page build to avoid issues in deployment
         curl -H "Authorization: token ${GITHUB_TOKEN}" \
+          -H "Accept: Accept: application/vnd.github.v3+json" \
           -X POST https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds
   integration:
     name: Run Integration Test
