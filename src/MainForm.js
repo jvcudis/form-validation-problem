@@ -149,8 +149,8 @@ export default function MainForm() {
                     type='password'
                     errors={errors}
                     register={register({
-                      minLength: {
-                        value: 8,
+                      pattern: {
+                        value: /^([a-zA-Z0-9@*#]{8,})$/,
                         message: 'Please input a valid password with min length of 8.'
                       }
                     })}

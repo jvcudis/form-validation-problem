@@ -39,7 +39,7 @@ context('ValidateFields', () => {
   })
 
   it('should require a valid password', () => {
-    // Input an invalid password value
+    // Input value with chars lesser than 8
     cy.get('#password')
       .clear()
       .type('abcd')
@@ -58,7 +58,21 @@ context('ValidateFields', () => {
     cy.get('#password-helper-text')
       .should('contain', 'Please input a valid password with min length of 8.')
 
-    // Input a valid password value
+    // Input value with spaces
+    cy.get('#password')
+      .clear()
+      .type('abc  defg')
+    cy.get('#password-helper-text')
+      .should('contain', 'Please input a valid password with min length of 8.')
+
+    // Input value with more than 8 chars and acceptable special chars
+    cy.get('#password')
+      .clear()
+      .type('abc@*#asd1230')
+    cy.get('#password-helper-text')
+      .should('not.exist')
+
+    // Input a value with 8 chars
     cy.get('#password')
       .clear()
       .type('abc123*#').should('have.value', 'abc123*#')
@@ -133,7 +147,7 @@ context('ValidateFields', () => {
       cy.get('#tiger_type-helper-text')
         .should('contain', 'Please input a string value.')
 
-      // Inputn an empty value
+      // Input an empty value
       cy.get('#tiger_type')
         .clear()
       cy.get('#tiger_type-helper-text')
