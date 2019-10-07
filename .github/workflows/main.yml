@@ -26,7 +26,10 @@ jobs:
       GITHUB_EMAIL: 'jvcudis@gmail.com'
     steps:
     - uses: actions/checkout@master
-    - uses: ./actions/build-deploy
+    - name: Build static site and deploy to gh-pages
+      run: |
+        npm ci --silent
+        npm run predeploy
   integration:
     name: Run Integration Test
     runs-on: ubuntu-latest
